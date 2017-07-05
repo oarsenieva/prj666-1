@@ -1,17 +1,20 @@
 <div class="categories">
 	<ul>
-		<li><a href="GoodList.php">Flounders</a></li>
-		<li><a href="GoodList.php">Clownfish</a></li>
-		<li><a href="GoodList.php">Cuttlefish</a></li>
-		<li><a href="GoodList.php">Cattle</a></li>
-		<li><a href="GoodList.php">Fish Food</a></li>
-		<li><a href="GoodList.php">Fish Castles</a></li>
-		<li><a href="GoodList.php">Fish Security</a></li>
-		<li><a href="GoodList.php">Sea Dragons</a></li>
-		<li><a href="GoodList.php">Sea Horses</a></li>
-		<li><a href="GoodList.php">SeaAnemones</a></li>
-		<li><a href="GoodList.php">Fish Houses</a></li>
-		<li><a href="GoodList.php">Fish Plants</a></li>
-		<li><a href="GoodList.php">Fish Intellectual Life</a></li>
+        <?php
+     //   include '../../tools/category.php';
+     //   echo "Found file";
+
+        $db = Database::getInstance();
+     //   $category = new Category($db,1);
+      //  echo "getting good object";
+        $alldata = $category->getAll();
+      //  echo "getting goods list";
+       
+        while ($row = mysqli_fetch_assoc($alldata)){
+        ?>
+		<li><a href="GoodList.php?cid=<?php echo "$row[category_id]";?>"><?php echo "$row[category_name]";  ?></a></li>
+        <?php
+        }
+        ?>	
 	</ul>
 </div>

@@ -4,7 +4,7 @@
 		<meta charset="UTF-8"/>
 		<meta name="description" content="list of goods in a category" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<title>Goods List</title>
+		<title>Manage Goods</title>
 		<link rel="stylesheet" href="css/stylesheet.css" />
 		
 	</head>
@@ -22,7 +22,8 @@
 		<div class="middle">
 		
 			<div class="content">
-				<h3>Goods in Category:<?php $selectcategory;
+                <a href="create-good.php" class="button">Add new good</a><br/>
+				<!--<h3>Goods in Category:<?php /*$selectcategory;
                                             if(isset( $_GET["cid"])){
                                                 $selectcategory = $_GET["cid"];
                                                 $alldata = $category->getOne($selectcategory);
@@ -31,30 +32,29 @@
                                             }else{
                                                 $selectcategory = "*";
                                                 echo "All"; 
-                                            }?> </h3>
+                                            }*/?> </h3>-->
 				
+                <table>
                 <?php
                    
                     $good = new Good($db);
                   //  echo "getting good object";
-                    $alldata = $good->getAllGoods($selectcategory);
+                    $alldata = $good->getAllGoods("*");
                  //   echo "getting goods list";
                    
                     while ($row = mysqli_fetch_assoc($alldata)){
                      //   echo "$row[good_name]<br/>";
                     ?>
-                    <div class="gooditem">
-                        <a href="GoodDetail.php?gid=<?php echo "$row[good_id]";?>">
-                        <?php echo "$row[good_name]";  ?>
-                        <img src=<?php echo "$row[good_image]"; ?> alt="images/fish.png" height="120" width="120" style="padding:20px 40px;"/>
-                        <br />
-                        $<?php echo "$row[good_price]";  ?>
-                        </a>
-                    </div>
+                    <tr style="border-bottom:1px solid black;">
+                        <td><a href="GoodDetail.php?gid=<?php echo "$row[good_id]";?>"><?php echo "$row[good_name]";  ?></a></td>
+                        <td><img src=<?php echo "$row[good_image]"; ?> alt="good image" height="70" width="70" style="padding:20px 40px;"/></td>
+                        <td>$<?php echo "$row[good_price]";  ?></td>
+                        <td><a href="edit-good.php?gid=<?php echo "$row[good_id]";?>">Edit</a>|<a href="delete-good.php?gid=<?php echo "$row[good_id]";?>">Delete</a></td>
+                    </tr>
                  <?php
                     }
                 ?>
-
+                </table>
 				
 			</div>
 
