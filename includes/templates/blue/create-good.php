@@ -24,20 +24,20 @@ if(!$user->isLoggedIn()){
 			include 'Header.php';
             
 
-            $db = Database::getInstance();
-            $category = new Category($db,1);
-            $allcategory = $category->getAll();
+           // $db = Database::getInstance();
+           // $category = new Category($db,1);
+          //  $allcategory = $category->getAll();
             
       
-                                        
-            $name = $image = $description = $price = $quantity = $weight = $taxable = $visible = $category = "";
-            
+            $taxable = $visible = 0;
+           
+            $name = $image = $description = $price = $quantity = $weight = $category = "";
+            $nameVer = $imageVer = $descVer = $priceVer = $qtyVer = $weightVer = $catVer = $clientVer = false; 
             $nameErr = $imageErr = $descriptionErr = $priceErr = $quantityErr = $weightErr = $taxableErr = $visibleErr = $categoryErr = "";
 
             if($_POST){
-                include 'goodValidate.php';
+                include '/data/www/default/wecreu/tools/goodValidate.php';
             }
-        //    include 'uploadImage.php';
             
 		?>
 <!--
@@ -89,18 +89,19 @@ if(!$user->isLoggedIn()){
                             </tr>
                             <tr>
                                 <td><label  for="taxable">Taxable</label></td>
-                                <td><input style="margin-left: 10px;" type="checkbox" name="taxable" id="taxable"  value="tax" <?php if(isset($taxable) && $taxable==true) echo "checked";?>/></td>
+                                <td><input style="margin-left: 10px;" type="checkbox" name="taxable" id="taxable" <?php if(isset($taxable) && $taxable==true) echo "checked";?>/></td>
                                 <td style="color:#ff0000;"><?php echo $taxableErr;?></td>
                             </tr>
                             <tr>
                                 <td><label  for="visible">Visible</label></td>
-                                <td><input style="margin-left: 10px;" type="checkbox" name="visible" id="visible" value="visible" <?php if(isset($visible) && $visible==true) echo "checked";?>/></td>
+                                <td><input style="margin-left: 10px;" type="checkbox" name="visible" id="visible" <?php if(isset($visible) && $visible==true) echo "checked";?>/></td>
                                 <td style="color:#ff0000;"><?php echo $visibleErr;?></td>
                             </tr>
                             <tr>
                                 <td><label  for="category_id">Category</label></td>
                                 <td><select name="category_id" id="category_id" >
                                         <?php 
+                                        mysqli_data_seek($allcategory, 0);
                                         while($row = mysqli_fetch_assoc($allcategory)){
                                             echo "<option value='$row[category_id]'>$row[category_name]</option>";
                                         }
