@@ -34,6 +34,7 @@
          echo "Sorry, your file was not uploaded.";
      // if everything is ok, try to upload file
      } else {
+
          if (move_uploaded_file($_FILES["good_image"]["tmp_name"], $target_file)) {
              echo "The file <b>" . $target_file . "</b> has been uploaded";//basename($_FILES["fileToUpload"]["name"]) . "</b> has been uploaded.";
              echo "image ".$image;
@@ -45,6 +46,7 @@
              echo "Sorry, there was an error uploading your file.";
          }
      }
+
 //     echo '<p><p><a href="index.php">Back</a></p></p>';
 
     function remove file(){

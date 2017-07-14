@@ -25,55 +25,58 @@
     </nav>
 </div>
 <div class="container mb-5">
+    <div class="input-group mb-5">
+        <input type="text" class="form-control" placeholder="Search for...">
+        <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button">Search!</button>
+      </span>
+    </div>
 
+    <div class="row text-center">
+        <section class="col-md-3">
+            <p>WHOLE COW</p>
+            <a href="detail.php"><img class="img-thumbnail" src="images/cow.jpg" alt="cow"> </a>
+            <p>Price: $10 / lb</p>
+        </section>
+        <section class="col-md-3">
+            <p>MEAT</p>
+            <a href="detail.php"><img class="img-thumbnail" src="images/cow.jpg" alt="cow"> </a>
+            <p>Price: $10 / lb</p>
+        </section>
+        <section class="col-md-3">
+            <p>HEAD</p>
+            <a href="detail.php"><img class="img-thumbnail" src="images/cow.jpg" alt="cow"> </a>
+            <p>Price: $10 / lb</p>
+        </section>
+        <section class="col-md-3">
+            <p>FOOT</p>
+            <a href="detail.php"><img class="img-thumbnail" src="images/cow.jpg" alt="cow"> </a>
+            <p>Price: $10 / lb</p>
+        </section>
 
-            <div class="row text-center">
-                <section class="col-md-3">
-
-                    <p>WHOLE COW</p>
-                    <a href="detail.php"><img class="img-thumbnail" src="images/cow.jpg" alt="cow"> </a>
-                    <p>Price: $10 / lb</p>
-
-                </section>
-                <section class="col-md-3">
-                    <p>MEAT</p>
-                    <a href="detail.php"><img class="img-thumbnail" src="images/cow.jpg" alt="cow"> </a>
-                    <p>Price: $10 / lb</p>
-                </section>
-                <section class="col-md-3">
-                    <p>HEAD</p>
-                    <a href="detail.php"><img class="img-thumbnail" src="images/cow.jpg" alt="cow"> </a>
-                    <p>Price: $10 / lb</p>
-                </section>
-                <section class="col-md-3">
-                    <p>FOOT</p>
-                    <a href="detail.php"><img class="img-thumbnail" src="images/cow.jpg" alt="cow"> </a>
-                    <p>Price: $10 / lb</p>
-                </section>
-
-            </div>
-            <div class="row text-center">
-                <section class="col-md-3">
-                    <p class="text-center">MILK</p>
-                    <a href="detail.php"><img class="img-thumbnail" src="images/cow.jpg" alt="cow"> </a>
-                    <p class="text-center">Price: $10 / lb</p>
-                </section>
-                <section class="col-md-3">
-                    <p>NOSE</p>
-                    <a href="detail.php"><img class="img-thumbnail" src="images/cow.jpg" alt="cow"> </a>
-                    <p>Price: $10 / lb</p>
-                </section>
-                <section class="col-md-3">
-                    <p>RIBS</p>
-                    <a href="detail.php"><img class="img-thumbnail" src="images/cow.jpg" alt="cow"> </a>
-                    <p>Price: $10 / lb</p>
-                </section>
-                <section class="col-md-3">
-                    <p>ORGANS</p>
-                    <a href="detail.php"><img class="img-thumbnail" src="images/cow.jpg" alt="cow"> </a>
-                    <p>Price: $10 / lb</p>
-                </section>
-            </div>
+    </div>
+    <div class="row text-center">
+        <section class="col-md-3">
+            <p class="text-center">MILK</p>
+            <a href="detail.php"><img class="img-thumbnail" src="images/cow.jpg" alt="cow"> </a>
+            <p class="text-center">Price: $10 / lb</p>
+        </section>
+        <section class="col-md-3">
+            <p>NOSE</p>
+            <a href="detail.php"><img class="img-thumbnail" src="images/cow.jpg" alt="cow"> </a>
+            <p>Price: $10 / lb</p>
+        </section>
+        <section class="col-md-3">
+            <p>RIBS</p>
+            <a href="detail.php"><img class="img-thumbnail" src="images/cow.jpg" alt="cow"> </a>
+            <p>Price: $10 / lb</p>
+        </section>
+        <section class="col-md-3">
+            <p>ORGANS</p>
+            <a href="detail.php"><img class="img-thumbnail" src="images/cow.jpg" alt="cow"> </a>
+            <p>Price: $10 / lb</p>
+        </section>
+    </div>
 
 
 </div>

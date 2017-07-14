@@ -126,7 +126,7 @@ if(Input::exists()){
     </div>
 </nav>
 <div class="container bg-faded py-5">
-    <h2 class="mb-4">Edit form</h2>
+    <h2 class="mb-4">Update company information</h2>
     <?php
     if($validate->errors()) {
         foreach ($validation->errors() as $error) {
@@ -136,7 +136,7 @@ if(Input::exists()){
     ?>
     <form action="" method="post">
         <fieldset class="form-group">
-            <legend>Edit Information</legend>
+            <legend>Update Information</legend>
             <div class="form-group col-md-6">
                 <label class="form-control-label" for="client_name">Client name</label>
                 <input class="form-control" type="text" name="client_name" id="client_name" placeholder="" value="<?php echo escape($user->data()->client_name);?>" disabled="disabled"/>
@@ -155,9 +155,9 @@ if(Input::exists()){
             </div>
         </fieldset>
         <fieldset class="form-group">
-            <legend>Edit Payment Method</legend>
+            <legend>Update Payment Method</legend>
             <div class="form-group form-inline">
-                <label class="form-control-label mr-2" for="client_tax">client tax</label>
+                <label class="form-control-label mr-2" for="client_tax">Total tax</label>
                 <input type="hidden" name="client_tax" value=0>
                 <input class="form-control" type="number" min="0.01" step="0.01" name="client_tax" id="client_tax" style="width: 90px;" value="<?php echo escape($user->data()->client_tax);?>" />
                 <span class="input-group-addon">%</span>

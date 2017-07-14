@@ -22,57 +22,6 @@ if(!$username = Input::get('user')){
     }
     ?>
 
-<?php
-//    require_once  'core/init.php';
-//
-//    $user = new User();
-//    $validate = new Validate();
-//
-//    if(!$user->isLoggedIn()){
-//        Redirect::to('index.php');
-//    }
-//
-//    if(Input::exists()){
-//        if(Token::check(Input::get('token'))){
-//            $validation = $validate->check($_POST, array(
-//                'current_password' => array(
-//                    'name' => 'Current password',
-//                    'required' => true,
-//                ),
-//                'new_password' => array(
-//                    'name' => 'New password',
-//                    'required' => true,
-//                    'min' => 6,
-//                ),
-//                'new_password_again' => array(
-//                    'name' => 'New password again',
-//                    'required' => true,
-//                    'matches' => 'new_password',
-//                    'matchesTo' => 'New Password'
-//                ),
-//            ));
-//
-//            if($validation->passed()){
-//                if(Hash::make(Input::get('current_password'), $user->data()->salt) !== $user->data()->password){
-//                    $validate->addError('Current password is incorrect.');
-//                } else{
-//                    $salt = Hash::salt(32);
-//                    try{
-//                        $user->update(array(
-//                            'password' => Hash::make(Input::get('new_password'), $salt),
-//                            'salt' => $salt
-//                        ));
-//                        Session::flash('changeP', 'Your password have been change.');
-//                    } catch (Exception $e){
-//                        die($e->getMessage());
-//                    }
-//                }
-//
-//            }
-//        }
-//    }
-   ?>
-
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -144,15 +93,15 @@ if(!$username = Input::get('user')){
     <div class="container bg-faded py-5" style="min-height: 100vh">
         <h2 class="mb-4">Profile</h2>
         <?php
-//        if(Session::exists('profile')) {
-//            echo '<p class="text-success">' . Session::flash('profile') . '</p>';
-//        }
-//
-//        if($validate->errors()) {
-//            foreach ($validation->errors() as $error) {
-//                echo '<small class="text-warning">' . $error . '</small><br />';
-//            }
-//        }
+        //        if(Session::exists('profile')) {
+        //            echo '<p class="text-success">' . Session::flash('profile') . '</p>';
+        //        }
+        //
+        //        if($validate->errors()) {
+        //            foreach ($validation->errors() as $error) {
+        //                echo '<small class="text-warning">' . $error . '</small><br />';
+        //            }
+        //        }
         ?>
 
     </div>

@@ -180,9 +180,10 @@ if(Input::exists()){
     <?php
     $clientId = escape($user->data()->client_id);
     $url = "companyInfo/footer/".$clientId.".txt";
-    $content = file_get_contents($url);
-
-    echo $content;
+    if (file_exists($url)) {
+      $content = file_get_contents($url);
+      echo $content;
+    }
     ?></script>
   </div>
   <div id="btns">
