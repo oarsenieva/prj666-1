@@ -1,8 +1,18 @@
+<?php
+/*require_once '/data/www/default/wecreu/core/init.php';
+
+$user = new User();
+
+if(!$user->isLoggedIn()){
+    Redirect::to('index.php');
+}*/
+
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 	<head>
 		<meta charset="UTF-8"/>
-		<meta name="description" content="list of goods in a category" />
+		<meta name="description" content="list of goods in all category for management" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<title>Manage Goods</title>
 		<link rel="stylesheet" href="css/stylesheet.css" />
@@ -12,27 +22,13 @@
 		
 		<?php
 			include 'Header.php';
-         //   include '../../tools/good.php';
-           // include '../../tools/category.php';
-            //   echo "Found file";
-            $db = Database::getInstance();
-            $category = new Category($db,1);
+ 
 		?>
 		
 		<div class="middle">
 		
 			<div class="content">
                 <a href="create-good.php" class="button">Add new good</a><br/>
-				<!--<h3>Goods in Category:<?php /*$selectcategory;
-                                            if(isset( $_GET["cid"])){
-                                                $selectcategory = $_GET["cid"];
-                                                $alldata = $category->getOne($selectcategory);
-                                                $row = mysqli_fetch_assoc($alldata);
-                                                echo "$selectcategory $row[category_name]"; 
-                                            }else{
-                                                $selectcategory = "*";
-                                                echo "All"; 
-                                            }*/?> </h3>-->
 				
                 <table>
                 <?php

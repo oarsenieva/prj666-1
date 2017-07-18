@@ -131,7 +131,7 @@
           <div class="row">
 
             <div class="col-md-8 col-sm-9">
-              <iframe id="good" src="good.php" style="width: 90vw;height: 100vh;position: relative; overflow-x: hidden;" >
+              <iframe id="good" src="feature.php" style="width: 90vw;height: 100vh;position: relative; overflow-x: hidden;" >
                 <p>Your browser does not support</p>
               </iframe>
             </div>
@@ -139,19 +139,21 @@
         </div>
 
         <!-- About us -->
+        <hr>
         <div class="page-section" id="aboutUs">
           <div class="row">
            <div class="col-md-12">
             <h4 class="widget-title">ABOUT US</h4>
-            <hr>
           </div>
         </div>
         <div class="row">
          <div class="col-md-12">
           <?php
           $url = "/data/www/default/wecreu/companyInfo/aboutUs/".$clientId.".txt";
-          $content = file_get_contents($url);
-          echo $content;
+          if (file_exists($url)) {
+            $content = file_get_contents($url);
+            echo $content;
+          }
           ?>
         </div>
       </div>
@@ -190,12 +192,18 @@
 
 <div class="row" id="footer">
   <div class="col-md-12">
-    <p class=""><?php
-          $url = "/data/www/default/wecreu/companyInfo/footer/".$clientId.".txt";
-          $content = file_get_contents($url);
-          echo $content;
-          ?>
-    </p>
+    <hr/>
+    <br/>
+    <?php
+    $url = "/data/www/default/wecreu/companyInfo/footer/".$clientId.".txt";
+    if (file_exists($url)) {
+    $content = file_get_contents($url);
+    echo $content;
+    }else{
+    echo "@ ". $client->getClientSiteTitle();
+    }
+    ?>
+    <br/>
   </div>
 </div>
 

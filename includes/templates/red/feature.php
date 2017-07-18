@@ -1,44 +1,41 @@
-  <div class="col-md-9 col-sm-9 col-xs-9 goodlist cf">
-
   <?php
-  require_once("/data/www/default/wecreu/tools/search.php");
   include_once("/data/www/default/wecreu/tools/sql.php");
-
   $db = Database::getInstance();
-
-  //create an object
-  $search = new Search($db,$clientId);
-
-  // call get all
-  $limit=12;
-  $offSet=0;
-
-  if(!isset($_GET['keyword'])){
-    $alldata = $search->getAll($limit,$offSet);
-  } else{
-    $keyword=$_GET['keyword'];
-    $alldata = $search->searchGood($keyword,$limit,$offSet);
-  }
-
-  while ($row = mysqli_fetch_assoc($alldata)) {
-    ?>
-    <div class="item col-md-12 col-sm-4 col-xs-4">
-      <a href='detail.php?id=<?php echo $row['good_id'];?>'>
-         <img src="http://th25.st.depositphotos.com/5142301/7567/v/450/depositphotos_75677235-stock-illustration-lion-head-logo.jpg" class="img-responsive" alt="Cinque Terre">
-        <p>
-          <?php
-          $name = $row['good_name'];
-          $length = strlen($name);
-          if ($length > 16){
-            $name = substr($name, 1 ,16)."...";
-          }
-          echo $name;
-          ?>
-        </p> <p>$<?php echo $row['good_price'];?></p>
-      </a>
-  </div>
-  <?php
-  }
-
   ?>
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <h1> Promotions </h1>
+    <hr/>
+    <div class="row pro-container">
+      <div class="col-md-6 pro-txt">
+        <h3>Cheesy Promo 50%</h3>
+        <p class="desc">Cheesy Promo 50% off by tomorrow!! Get your cows n...................................................</p>
+        <p class="pro-off">20% OFF</p>
+        <button class="btn btn-danger btn-lg">Add To Cart</button>
+        <button class="btn btn-danger btn-lg pro-btn-right">See Full Details</button>
+      </div>
+      <div class="col-md-6 pro-image">
+        <img src="images/promotion.jpg"></img>
+      </div>
+    </div>
+
+    <hr/>
+    <div class="row pro-container">
+      <div class="col-md-6 pro-image">
+        <img src="images/promotion.jpg"></img>
+      </div>
+      <div class="col-md-6 pro-txt">
+        <h3>Cheesy Promo 50%</h3>
+        <p class="desc">Cheesy Promo 50% off by tomorrow!! Get your cows n...................................................</p>
+        <p class="pro-off">20% OFF</p>
+        <button class="btn btn-danger btn-lg">Add To Cart</button>
+        <button class="btn btn-danger btn-lg pro-btn-right">See Full Details</button>
+      </div>
+    </div>
+
+    <hr/>
   </div>
+
+
+
+  <?php
+  ?>

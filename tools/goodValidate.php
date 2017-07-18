@@ -1,7 +1,7 @@
 <?php
     echo "goodValidate starts<br/>";
 
-    $nameVer = $imageVer = $descVer = $priceVer = $qtyVer = $weightVer = $catVer = $clientVer = false; 
+  //  $nameVer = $imageVer = $descVer = $priceVer = $qtyVer = $weightVer = $catVer = $clientVer = false; 
   
     if($_SERVER["REQUEST_METHOD"] == "POST"){
 
@@ -131,36 +131,7 @@
     $clientVer = true; 
  //   echo " to ".$clientid." and clientVer = ".$clientVer."<br/>";
 
- //   echo "calling uploadImage script<br/>";
-   // include '/data/www/default/wecreu/tools/uploadImage.php';
-  
-    echo "goodValidate.php getting ready to insert into db<br/>";
-    echo "$nameVer, $imageVer, $descVer, $priceVer, $qtyVer, $weightVer, $catVer, $clientVer Calling DB<br/>";
-
-    if($nameVer == true && $imageVer == true && $descVer == true && 
-       $priceVer == true && $qtyVer == true && $weightVer == true && 
-       $catVer == true && $clientVer == true){
-
-        $good = new Good($db);
-          
-        echo "adding new good ".$name.",".$image.",".$description.",".$price.",".$quantity.",".$weight.",".$taxable.",".$visible.",".$category."<br/>";
-
-        if($good->addGood($name, $image, $description, $price, $quantity, $weight, $taxable, $visible, $category)){
-           
-            echo "added successfully new good ".$name.",".$image.",".$description.",".$price.",".$quantity.",".$weight.",".$taxable.",".$visible.",".$category."<br/>";
-         
-            //$good->editGood();
-
-          //  echo "upload file now in theory";
-
-
-        } else {
-            echo "error received adding new good ".$name.",".$image.",".$description.",".$price.",".$quantity.",".$weight.",".$taxable.",".$visible.",".$category."<br/>";
-
-        }
-    }
-    
-
+ 
     function validate($data){
      //   echo "--function validate(".$data.") called<br/>";
         $data = trim($data);

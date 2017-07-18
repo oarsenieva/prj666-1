@@ -113,9 +113,8 @@ if(Input::exists()){
                     >Category</a>
 
                     <div class="dropdown-menu" aria-labelledby="categoryDropdown">
-                        <a class="dropdown-item" href="#">View categories</a>
+                        <a class="dropdown-item" href="category.php">View categories</a>
                         <a class="dropdown-item" href="addCategoryForm.php">Create category</a>
-                        <a class="dropdown-item" href="#">Edit category</a>
                     </div>
                 </div>
 
@@ -126,13 +125,25 @@ if(Input::exists()){
                     >Good</a>
 
                     <div class="dropdown-menu" aria-labelledby="goodDropdown">
-                        <a class="dropdown-item" href="#">View goods</a>
+                        <a class="dropdown-item" href="good.php">View goods</a>
                         <a class="dropdown-item" href="create-good.php">Create good</a>
                         <a class="dropdown-item" href="edit-good.php">Edit good</a>
                     </div>
                 </div>
 
-                <a class="nav-item nav-link" href="createsale.php">Create Sale</a>
+                <div class="dropdown">
+                    <a class="nav-item nav-link dropdown-toggle" href="#"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                       id="saleDropdown"
+                    >Sale</a>
+
+                    <div class="dropdown-menu" aria-labelledby="saleDropdown">
+                        <a class="dropdown-item" href="sale.php">View sales</a>
+                        <a class="dropdown-item" href="onsale.php">Goods on sale</a>
+                        <a class="dropdown-item" href="createsale.php">Create Sale</a>
+                    </div>
+                </div>
+
                 <a class="nav-item nav-link" href="logout.php">Log out</a>
             </div>
         </div>

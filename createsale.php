@@ -117,6 +117,9 @@ if(Input::exists()){
                     <div class="dropdown-menu" aria-labelledby="profileDropdown">
                         <a class="dropdown-item" href="edit-com.php">Update account</a>
                         <a class="dropdown-item" href="changepassword.php">Change password</a>
+                        <a class="dropdown-item" href="editCover.php">Edit cover</a>
+                        <a class="dropdown-item" href="editFooter.php">Edit footer</a>
+                        <a class="dropdown-item" href="editAboutUs.php">Edit about us</a>
                     </div>
                 </div>
 
@@ -127,9 +130,8 @@ if(Input::exists()){
                     >Category</a>
 
                     <div class="dropdown-menu" aria-labelledby="categoryDropdown">
-                        <a class="dropdown-item" href="#">View categories</a>
+                        <a class="dropdown-item" href="category.php">View categories</a>
                         <a class="dropdown-item" href="addCategoryForm.php">Create category</a>
-                        <a class="dropdown-item" href="#">Edit category</a>
                     </div>
                 </div>
 
@@ -140,13 +142,24 @@ if(Input::exists()){
                     >Good</a>
 
                     <div class="dropdown-menu" aria-labelledby="goodDropdown">
-                        <a class="dropdown-item" href="#">View goods</a>
+                        <a class="dropdown-item" href="good.php">View goods</a>
                         <a class="dropdown-item" href="create-good.php">Create good</a>
                         <a class="dropdown-item" href="edit-good.php">Edit good</a>
                     </div>
                 </div>
 
-                <a class="nav-item nav-link active" href="createsale.php">Create Sale</a>
+                <div class="dropdown">
+                    <a class="nav-item nav-link dropdown-toggle active" href="#"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                       id="saleDropdown"
+                    >Sale</a>
+
+                    <div class="dropdown-menu" aria-labelledby="saleDropdown">
+                        <a class="dropdown-item" href="sale.php">View sales</a>
+                        <a class="dropdown-item" href="onsale.php">Goods on sale</a>
+                        <a class="dropdown-item" href="createsale.php">Create Sale</a>
+                    </div>
+                </div>
                 <a class="nav-item nav-link" href="logout.php">Log out</a>
             </div>
         </div>
@@ -246,7 +259,7 @@ if(Input::exists()){
                                 $goodItems = $good->data();
 
                                 foreach ($goodItems as $goodItem){
-                                    if ($goodItem->sale_id) echo '<p>On sale: ' . escape($goodItem->good_name) . ' <a href="createsale.php?action=delete&item_id='. escape($goodItem->good_id) .'">(delete)</a></p>';
+                                    if ($goodItem->sale_id) echo 'On sale: ' . escape($goodItem->good_name) . ' <a href="createsale.php?action=delete&item_id='. escape($goodItem->good_id) .'">(delete)</a><br>';
                                 }
                             }
                         }

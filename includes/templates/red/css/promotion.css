@@ -1,0 +1,41 @@
+.pro-container{
+  margin: 30px 0 60px 0;
+  position: relative;
+}
+
+.pro-txt{
+  position: relative;
+  height: 120%;
+}
+
+.pro-container h3{
+  font-size: 30px;
+}
+
+.pro-container .desc{
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+/*.pro-container button{
+  position: absolute;
+  bottom: 0;
+}*/
+
+.pro-btn-right{
+  position: absolute;
+  left:180px;
+}
+
+.pro-container .pro-image{
+  padding: 0 30px;
+  overflow: hidden;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.pro-off{
+  font-size: 50px;
+  color: #d24141;
+}

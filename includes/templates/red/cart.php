@@ -7,10 +7,9 @@
   <br>
   <div class="container bg-faded pt-5">
   <!-- category -->
-  <?php include_once("category.php");?>
 
   <!-- cart -->
-    <div class="col-md-9 col-sm-9 col-xs-9">
+    <div class="col-md-12 col-sm-12 col-xs-12">
       <h1>Shopping Cart</h1>
         <table class="table table-striped">
           <tr>
@@ -44,16 +43,8 @@
         <button type="button" class="pull-right btn btn-default">checkout</button>
 
   </div>
-  
-    <div class="row">
-      <div class="btn-group pull-right" role="group" aria-label="...">
-        <button type="button" class="btn btn-default">First page</button>
-        <button type="button" class="btn btn-default">1</button>
-        <button type="button" class="btn btn-default">2</button>
-        <button type="button" class="btn btn-default">3</button>
-        <button type="button" class="btn btn-default">Last page</button>
-      </div>
-    </div>
+
+
   </div>
 
   <!-- footer -->

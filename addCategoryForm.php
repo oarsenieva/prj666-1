@@ -38,8 +38,8 @@ if(Input::exists()) {
 
                 // add one
                 if ($category->add($_POST['category_name'], $_POST['desc'])) {
-                    Session::flash('createC', 'New category has been added!');
-                    //Redirect::to('index.php');
+                    Session::flash('category', 'New category '. $_POST['category_name'] .' has been added!');
+                    Redirect::to('category.php');
 
                 } else {
                     $validate->addError('Sorry, adding new category failed. Please try again.');
@@ -84,6 +84,9 @@ if(Input::exists()) {
                     <div class="dropdown-menu" aria-labelledby="profileDropdown">
                         <a class="dropdown-item" href="edit-com.php">Update account</a>
                         <a class="dropdown-item" href="changepassword.php">Change password</a>
+                        <a class="dropdown-item" href="editCover.php">Edit cover</a>
+                        <a class="dropdown-item" href="editFooter.php">Edit footer</a>
+                        <a class="dropdown-item" href="editAboutUs.php">Edit about us</a>
                     </div>
                 </div>
 
@@ -94,9 +97,8 @@ if(Input::exists()) {
                     >Category</a>
 
                     <div class="dropdown-menu" aria-labelledby="categoryDropdown">
-                        <a class="dropdown-item" href="#">View categories</a>
+                        <a class="dropdown-item" href="category.php">View categories</a>
                         <a class="dropdown-item" href="addCategoryForm.php">Create category</a>
-                        <a class="dropdown-item" href="#">Edit category</a>
                     </div>
                 </div>
 
@@ -107,13 +109,25 @@ if(Input::exists()) {
                     >Good</a>
 
                     <div class="dropdown-menu" aria-labelledby="goodDropdown">
-                        <a class="dropdown-item" href="#">View goods</a>
+                        <a class="dropdown-item" href="good.php">View goods</a>
                         <a class="dropdown-item" href="create-good.php">Create good</a>
                         <a class="dropdown-item" href="edit-good.php">Edit good</a>
                     </div>
                 </div>
 
-                <a class="nav-item nav-link" href="createsale.php">Create Sale</a>
+                <div class="dropdown">
+                    <a class="nav-item nav-link dropdown-toggle" href="#"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                       id="saleDropdown"
+                    >Sale</a>
+
+                    <div class="dropdown-menu" aria-labelledby="saleDropdown">
+                        <a class="dropdown-item" href="sale.php">View sales</a>
+                        <a class="dropdown-item" href="onsale.php">Goods on sale</a>
+                        <a class="dropdown-item" href="createsale.php">Create Sale</a>
+                    </div>
+                </div>
+
                 <a class="nav-item nav-link" href="logout.php">Log out</a>
             </div>
         </div>

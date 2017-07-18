@@ -8,10 +8,10 @@ include("../../tools/sql.php");
 *created June 4 2017
 */
 
- 
-                   
+
+
     $db = Database::getInstance();
-     $mysqli = $db->getConnection();
+    $mysqli = $db->getConnection();
 
     echo "error connecting " . $mysqli->connect_error;
     echo "error connecting" . $mysqli->connect_errno;
@@ -22,5 +22,5 @@ include("../../tools/sql.php");
                   while ($row = mysqli_fetch_assoc($result)){
                         echo "$row[good_name]<br/>";
                     }*/
-               
+
 ?>

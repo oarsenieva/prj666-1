@@ -1,0 +1,1 @@
+<p style="white-space: normal; text-align: center;"><strong>About Us</strong></p><p style="white-space: normal; text-align: center;"><strong>Brian&#39;s fishes shop</strong></p><p style="text-align: center;">Address: 123 york<strong><br/></strong></p><p style="text-align: center;">Tel : &nbsp;647-231-3322</p><p style="text-align: center;">Email: abc@hotmail.com</p>

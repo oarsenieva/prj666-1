@@ -34,6 +34,10 @@ if(!isset($_GET['keyword'])){
   $last="?offSet=$num";
   $num=$offSet-$limit;
   $pre="?offSet=$num";
+
+  // count number of items on next page
+  $nextAlldata = $search->getAll($limit,$offSet+$limit);
+  $nextTotal=mysqli_num_rows($nextAlldata);
 } else{
   $keyword=$_GET['keyword'];
   $alldata = $search->searchGood($keyword,$limit,$offSet);
@@ -41,6 +45,10 @@ if(!isset($_GET['keyword'])){
   $last="?keyword=$keyword&offSet=$num";
   $num=$offSet-$limit;
   $pre="?keyword=$keyword&offSet=$num";
+
+  // count number of items on next page
+  $nextAlldata = $search->searchGood($keyword,$limit,$offSet+$limit);
+  $nextTotal=mysqli_num_rows($nextAlldata);
 }
 $total=mysqli_num_rows($alldata);
 if($total == 0){
@@ -76,9 +84,10 @@ while ($row = mysqli_fetch_assoc($alldata)) {
         echo '<a href="'.$pre.'" class="btn" role="button"><-</a>';
       }
       if($total == 12){
-        echo '<a href="'.$last.'" class="btn" role="button">-></a>';
+        if($nextTotal != 0) {
+          echo '<a href="'.$last.'" class="btn" role="button">-></a>';
+        }
       }
-
       ?>
     </div>
   </div>

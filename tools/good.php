@@ -1,5 +1,5 @@
 <?php
-include_once("sql.php");
+include_once("/data/www/default/wecreu/tools/sql.php");
 
 /*
 *Good Class
@@ -78,10 +78,10 @@ class Good {
                         $stock, $weight, $taxable, $visible, $category, 16)";
 
         if($this->mysqli->query($sql_query)){
-            echo "production/tools/good.php:query worked ".$sql_query."<br/>";
+            echo "good.php:query worked ".$sql_query."<br/>";
             return true;
         }else{
-            echo "production/tools/good.php:received error for query ".$sql_query." <br/>";
+            echo "good.php:received error for query ".$sql_query." <br/>";
             return false;
         }
     }
@@ -90,15 +90,21 @@ class Good {
     Edit an existing good in db
     */
     public function editGood($id, $name, $image, $description, $price, $stock, $weight, $taxable, $visible, $category, $sale){
-       /* "UPDATE 'good' SET 'good_name'='$name', 'good_image'='$image', 'good_description'='$description', 'good_price'=$price, 
-                                    'good_in_stock'=$stock, 'good_weight'=$weight, 'good_taxable'=$taxable, 'good_visible'=$visible,
-                                    'category_id'=$category, 'sale_id'=$sale WHERE 'good_id' = $id";*/
-        $sql_query ="UPDATE good SET good_name='test', good_image='image', good_description='description', good_price=40.50,
+       /*"UPDATE good SET good_name='test', good_image='image', good_description='description', good_price=40.50,
                                        good_in_stock=100, good_weight=5, good_taxable=1, good_visible=1, category_id=4, sale_id=1 
-                                    WHERE good_id = 7";
+                                    WHERE good_id = $id";*/
+        $sql_query = "UPDATE `good` SET good_name='$name', good_image='$image', good_description='$description', good_price=$price, 
+                                    good_in_stock=$stock, good_weight=$weight, good_taxable=$taxable, good_visible=$visible,
+                                    category_id=$category, sale_id=$sale WHERE good_id = $id";
         //echo $sql_query;
-        return $this->mysqli->query($sql_query);
-      //return true;
+     //   return $this->mysqli->query($sql_query);
+        if($this->mysqli->query($sql_query)){
+            echo "good.php:query worked ".$sql_query."<br/>";
+            return true;
+        }else{
+            echo "good.php:received error for query ".$sql_query." <br/>";
+            return false;
+        }  
     }
 
     /*

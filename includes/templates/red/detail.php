@@ -37,11 +37,11 @@
                   <th>Weight</th>
                   <th>Price</th>
                 </tr>
-                <tr height="50px"> 
+                <tr height="50px">
                   <td>Very Friendly</td>
                   <td>50 lbs</td>
                   <td>$100.00</td>
-                </tr> 
+                </tr>
               </tbody>
             </table>
           <br>
@@ -50,11 +50,11 @@
           </div>
           <a class="pull-left" href="good.php" ">Back</a>
           </div>
-        </div>  
+        </div>
 
 
   </div>
-
+</div>
   <!-- footer -->
   <?php include_once("footer.php");?>
 </body>

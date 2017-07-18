@@ -29,6 +29,20 @@ class Category{
         }
     }
 
+    public function find($id = null){
+        if($id){
+            $data = $this->_db->get('category', array('category_id', '=', $id));
+
+            if($data->count()){
+                $this->_data = $data->first();
+
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public function data(){
         return $this->_data;
     }

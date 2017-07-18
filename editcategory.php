@@ -9,6 +9,14 @@ if (!$user->isLoggedIn()){
     Redirect::to('index.php');
 }
 
+if($user->data()->username !== Input::get('user')){
+    Redirect::to(404);
+}
+
+if(!$category->find(Input::get('categoryNo'))){
+    Redirect::to(404);
+}
+
 if(Input::exists()) {
     if (Token::check(Input::get('token'))) {
         $validation = $validate->check($_POST, array(
@@ -24,12 +32,13 @@ if(Input::exists()) {
             try{
 
                 $category->update(array(
-                    'category_description' => Input::get('desc')
-                ), 150);
+                    'category_description' => Input::get('desc'),
+                    'category_display' => ((Input::get('visible')) ? 1 : 0)
+                ), Input::get('categoryNo'));
 
 
-                Session::flash('editC', 'Description description have been updated.');
-                //Redirect::to('index.php');
+                Session::flash('category', 'Category ' . $category->data()->category_name . ' has been updated');
+                Redirect::to('category.php');
 
             } catch (Exception $e){
                 die($e->getMessage());
@@ -70,6 +79,9 @@ if(Input::exists()) {
                     <div class="dropdown-menu" aria-labelledby="profileDropdown">
                         <a class="dropdown-item" href="edit-com.php">Update account</a>
                         <a class="dropdown-item" href="changepassword.php">Change password</a>
+                        <a class="dropdown-item" href="editCover.php">Edit cover</a>
+                        <a class="dropdown-item" href="editFooter.php">Edit footer</a>
+                        <a class="dropdown-item" href="editAboutUs.php">Edit about us</a>
                     </div>
                 </div>
 
@@ -80,9 +92,8 @@ if(Input::exists()) {
                     >Category</a>
 
                     <div class="dropdown-menu" aria-labelledby="categoryDropdown">
-                        <a class="dropdown-item" href="#">View categories</a>
+                        <a class="dropdown-item" href="category.php">View categories</a>
                         <a class="dropdown-item" href="addCategoryForm.php">Create category</a>
-                        <a class="dropdown-item" href="#">Edit category</a>
                     </div>
                 </div>
 
@@ -93,13 +104,25 @@ if(Input::exists()) {
                     >Good</a>
 
                     <div class="dropdown-menu" aria-labelledby="goodDropdown">
-                        <a class="dropdown-item" href="#">View goods</a>
+                        <a class="dropdown-item" href="good.php">View goods</a>
                         <a class="dropdown-item" href="create-good.php">Create good</a>
                         <a class="dropdown-item" href="edit-good.php">Edit good</a>
                     </div>
                 </div>
 
-                <a class="nav-item nav-link" href="createsale.php">Create Sale</a>
+                <div class="dropdown">
+                    <a class="nav-item nav-link dropdown-toggle" href="#"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                       id="saleDropdown"
+                    >Sale</a>
+
+                    <div class="dropdown-menu" aria-labelledby="saleDropdown">
+                        <a class="dropdown-item" href="sale.php">View sales</a>
+                        <a class="dropdown-item" href="onsale.php">Goods on sale</a>
+                        <a class="dropdown-item" href="createsale.php">Create Sale</a>
+                    </div>
+                </div>
+
                 <a class="nav-item nav-link" href="logout.php">Log out</a>
             </div>
         </div>
@@ -125,13 +148,23 @@ if(Input::exists()) {
         <fieldset class="form-group">
             <legend></legend>
             <div class="form-group col-md-6">
-                <label class="form-control-label" for="category_name"><span class="text-danger">*</span> Name</label>
-                <input class="form-control" type="text" id="category_name" name="category_name" value="" disabled>
+                <label class="form-control-label" for="category_name">Name</label>
+                <input class="form-control" type="text" id="category_name" name="category_name" value="<?php echo escape($category->data()->category_name); ?>" disabled>
             </div>
             <div class="form-group col-md-6">
                 <label class="form-control-label" for="desc"><span class="text-danger">*</span> Description</label>
-                <textarea class="form-control" rows="3" name="desc" id="desc" placeholder="Enter description"><?php echo escape(Input::get('desc'))?></textarea>
+                <textarea class="form-control" rows="3" name="desc" id="desc" value="Enter description"><?php echo escape($category->data()->category_description); ?></textarea>
                 <input type="hidden" name="method" value="categoryAdd">
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="visible" value="1"
+                        <?php
+                            if($category->data()->category_display) echo "checked"
+                        ?>
+                    > Visible
+
+                </label>
             </div>
         </fieldset>
         <div class="form-group">

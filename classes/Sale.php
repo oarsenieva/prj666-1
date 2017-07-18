@@ -22,9 +22,20 @@ class Sale{
         }
     }
 
-    public function getSale($where = array()){
-        $data = $this->_db->get('sale', $where);
-        $this->_data = $data->results();
+    public function getSale($clientId = null){
+        if ($clientId){
+            $stringQuery = "SELECT sale.* FROM client JOIN category ON category.client_id = client.client_id JOIN good ON good.category_id = category.category_id JOIN sale ON sale.sale_id = good.sale_id WHERE client.client_id = ? GROUP BY sale.sale_id";
+            $data = $this->_db->query($stringQuery, array(30));
+            $this->_data = $data->results();
+        }
+    }
+
+    public function getGoodWithSale($clientId = null){
+        if ($clientId){
+            $stringQuery = "SELECT good.*, sale.* FROM client JOIN category ON category.client_id = client.client_id JOIN good ON good.category_id = category.category_id JOIN sale ON sale.sale_id = good.sale_id WHERE client.client_id = ?";
+            $data = $this->_db->query($stringQuery, array(30));
+            $this->_data = $data->results();
+        }
     }
 
     public function findSale($where = array()){

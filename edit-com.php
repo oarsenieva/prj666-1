@@ -89,6 +89,9 @@ if(Input::exists()){
                     <div class="dropdown-menu" aria-labelledby="profileDropdown">
                         <a class="dropdown-item" href="edit-com.php">Update account</a>
                         <a class="dropdown-item" href="changepassword.php">Change password</a>
+                        <a class="dropdown-item" href="editCover.php">Edit cover</a>
+                        <a class="dropdown-item" href="editFooter.php">Edit footer</a>
+                        <a class="dropdown-item" href="editAboutUs.php">Edit about us</a>
                     </div>
                 </div>
 
@@ -99,9 +102,8 @@ if(Input::exists()){
                     >Category</a>
 
                     <div class="dropdown-menu" aria-labelledby="categoryDropdown">
-                        <a class="dropdown-item" href="#">View categories</a>
+                        <a class="dropdown-item" href="category.php">View categories</a>
                         <a class="dropdown-item" href="addCategoryForm.php">Create category</a>
-                        <a class="dropdown-item" href="#">Edit category</a>
                     </div>
                 </div>
 
@@ -112,13 +114,25 @@ if(Input::exists()){
                     >Good</a>
 
                     <div class="dropdown-menu" aria-labelledby="goodDropdown">
-                        <a class="dropdown-item" href="#">View goods</a>
+                        <a class="dropdown-item" href="good.php">View goods</a>
                         <a class="dropdown-item" href="create-good.php">Create good</a>
                         <a class="dropdown-item" href="edit-good.php">Edit good</a>
                     </div>
                 </div>
 
-                <a class="nav-item nav-link" href="createsale.php">Create Sale</a>
+                <div class="dropdown">
+                    <a class="nav-item nav-link dropdown-toggle" href="#"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                       id="saleDropdown"
+                    >Sale</a>
+
+                    <div class="dropdown-menu" aria-labelledby="saleDropdown">
+                        <a class="dropdown-item" href="sale.php">View sales</a>
+                        <a class="dropdown-item" href="onsale.php">Goods on sale</a>
+                        <a class="dropdown-item" href="createsale.php">Create Sale</a>
+                    </div>
+                </div>
+
                 <a class="nav-item nav-link" href="logout.php">Log out</a>
             </div>
         </div>
@@ -126,7 +140,7 @@ if(Input::exists()){
     </div>
 </nav>
 <div class="container bg-faded py-5">
-    <h2 class="mb-4">Edit form</h2>
+    <h2 class="mb-4">Update company information</h2>
     <?php
     if($validate->errors()) {
         foreach ($validation->errors() as $error) {
@@ -136,7 +150,7 @@ if(Input::exists()){
     ?>
     <form action="" method="post">
         <fieldset class="form-group">
-            <legend>Edit Information</legend>
+            <legend>Update Information</legend>
             <div class="form-group col-md-6">
                 <label class="form-control-label" for="client_name">Client name</label>
                 <input class="form-control" type="text" name="client_name" id="client_name" placeholder="" value="<?php echo escape($user->data()->client_name);?>" disabled="disabled"/>
@@ -145,19 +159,15 @@ if(Input::exists()){
                 <label class="form-control-label" for="client_site_title">Site title</label>
                 <input class="form-control" type="text" name="client_site_title" id="client_site_title" placeholder="Edit site title" value="<?php echo escape($user->data()->client_site_title);?>" disabled = "disabled" />
             </div>
-            <!--            <div class="form-group col-md-6">-->
-            <!--                <label class="form-control-label" for="fileToUpload">Site logo</label>-->
-            <!--                <input class="form-control" type="file" name="fileToUpload" id="fileToUpload" placeholder="Upload your logo">-->
-            <!--            </div>-->
             <div class="form-group col-md-6">
                 <label class="form-control-label" for="client_information">Client information</label>
                 <textarea class="form-control" rows="3" name="client_information" id="client_information" placeholder=""><?php echo escape($user->data()->client_information);?></textarea>
             </div>
         </fieldset>
         <fieldset class="form-group">
-            <legend>Edit Payment Method</legend>
+            <legend>Update Payment Method</legend>
             <div class="form-group form-inline">
-                <label class="form-control-label mr-2" for="client_tax">client tax</label>
+                <label class="form-control-label mr-2" for="client_tax">Total tax</label>
                 <input type="hidden" name="client_tax" value=0>
                 <input class="form-control" type="number" min="0.01" step="0.01" name="client_tax" id="client_tax" style="width: 90px;" value="<?php echo escape($user->data()->client_tax);?>" />
                 <span class="input-group-addon">%</span>

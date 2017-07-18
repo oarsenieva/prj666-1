@@ -19,6 +19,7 @@
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Tangerine">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/table.css">
+  <link rel="stylesheet" href="css/promotion.css">
   <style>
     body .cname{
       font-family: 'Tangerine', serif;

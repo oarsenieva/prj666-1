@@ -20,20 +20,25 @@
         }
     }
 
-     // Check if file already exists
-   /*  if (file_exists($target_file)) {
+    // Check if file already exists
+    if (file_exists($target_file)) {
          // if the logo exists, delete it.
-        // unlink($target_file);
-       // $uploadOk = 0;
-        $image = $target_file;
+        unlink($target_file);
+        $uploadOk = 0;
+       // $image = $target_file;
         echo "File already exists";
-     }*/
-     
+    }
+
+    if($_FILES["good_image"]["size"] > 500000){
+        echo "file is too large";
+        $uploadOK = 0;
+    }
+
      // Check if $uploadOk is set to 0 by an error
-     if ($uploadOk == 0) {
+    if ($uploadOk == 0) {
          echo "Sorry, your file was not uploaded.";
      // if everything is ok, try to upload file
-     } else {
+    } else {
          if (move_uploaded_file($_FILES["good_image"]["tmp_name"], $target_file)) {
              echo "The file <b>" . $target_file . "</b> has been uploaded";//basename($_FILES["fileToUpload"]["name"]) . "</b> has been uploaded.";
              echo "image ".$image;
@@ -41,16 +46,20 @@
              $imageVer=true;
              echo " is set to ".$image." $imageVer= ".$imageVer."<br/>";
              echo "FILES is ".$_FILES["good_image"]["tmp_name"]."<br/>";
-         } else {
+        } else {
              echo "Sorry, there was an error uploading your file.";
-         }
-     }
-//     echo '<p><p><a href="index.php">Back</a></p></p>';
-
-    function remove file(){
-        if (file_exists($target_file)) {
-            unlink($target_file);
         }
     }
-}
+    
+
+    function removeImage($image){
+        $filename = preg_split("/^.+\.\w{3}$/", $image, PREG_SPLIT_NO_EMPTY);
+        echo "<br/>got filename ".$filename." size<br/>";
+        if (file_exists($target_file."/".$filename)) {
+            echo "<br/> found file ".$target_file."/".$filename." deleting!  <br/>";
+           // fclose($target_file);
+            //unlink($target_file);
+        }
+    }
+
 ?>

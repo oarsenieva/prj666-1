@@ -12,11 +12,9 @@
 		
 		<?php
 			include 'Header.php';
-         //   include '../../tools/good.php';
-           // include '../../tools/category.php';
-            //   echo "Found file";
-            $db = Database::getInstance();
-            $category = new Category($db,1);
+        
+          //  $db = Database::getInstance();
+            //$category = new Category($db,1);
 		?>
 		
 		<div class="middle">
@@ -27,7 +25,7 @@
                                                 $selectcategory = $_GET["cid"];
                                                 $alldata = $category->getOne($selectcategory);
                                                 $row = mysqli_fetch_assoc($alldata);
-                                                echo "$selectcategory $row[category_name]"; 
+                                                echo " $row[category_name]"; 
                                             }else{
                                                 $selectcategory = "*";
                                                 echo "All"; 
@@ -46,7 +44,7 @@
                     <div class="gooditem">
                         <a href="GoodDetail.php?gid=<?php echo "$row[good_id]";?>">
                         <?php echo "$row[good_name]";  ?>
-                        <img src=<?php echo "$row[good_image]"; ?> alt="images/fish.png" height="120" width="120" style="padding:20px 40px;"/>
+                        <img src=<?php echo "$row[good_image]"; ?> alt="good image" height="120" width="120" style="padding:20px 40px;"/>
                         <br />
                         $<?php echo "$row[good_price]";  ?>
                         </a>
